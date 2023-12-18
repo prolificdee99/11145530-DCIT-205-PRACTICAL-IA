@@ -1,0 +1,18 @@
+// models/patient.js
+const mongoose = require('mongoose');
+
+const patientSchema = new mongoose.Schema({
+  patientId: { type: String, required: true },
+  surname: { type: String, required: true },
+  otherNames: { type: String, required: true },
+  gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
+  phoneNumber: { type: String, required: true },
+  residentialAddress: { type: String, required: true },
+  emergencyName: { type: String, required: true },
+  emergencyContact: { type: String, required: true },
+  emergencyRelationship: { type: String, required: true },
+});
+
+const Patient = mongoose.model('Patient', patientSchema);
+
+module.exports = Patient;
